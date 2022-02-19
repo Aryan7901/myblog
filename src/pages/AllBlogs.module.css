@@ -3,3 +3,11 @@
   align-items: center;
   flex-direction: column;
 }
+.message {
+  color: var(--theme-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  margin: 0.5rem;
+}

@@ -21,7 +21,7 @@ const UserBlogs = () => {
           }
         );
         if (!response.ok) {
-          throw new Error("Could not login");
+          throw new Error("Could not fetch User's Pages");
         }
         const data = await response.json();
         setBlogs(data.blogs);
@@ -31,9 +31,15 @@ const UserBlogs = () => {
     };
     fetchBlogs();
   }, [token]);
+  const boolShowNotFound = JSON.stringify(blogs) === "[]";
   const boolBlogs = !!blogs;
   return (
     <Fragment>
+      {boolShowNotFound && (
+        <div className={classes.message}>
+          <h1>You are yet to Write a Blog!</h1>
+        </div>
+      )}
       {boolBlogs ? (
         <section className={classes.content}>
           {blogs.map((blog) => {
