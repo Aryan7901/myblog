@@ -7,9 +7,9 @@ function Links(props) {
   const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
   const logoutHandler = () => {
+    dispatch(userActions.logout());
     localStorage.removeItem("userData");
     localStorage.removeItem("timer");
-    dispatch(userActions.logout())();
   };
   return (
     <ul>

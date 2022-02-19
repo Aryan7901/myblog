@@ -19,7 +19,11 @@ const userSlice = createSlice({
       state.id = action.payload.user;
     },
     logout(state) {
-      state = initialState;
+      state.token = null;
+      state.email = null;
+      state.id = null;
+      state.firstName = null;
+      state.lastName = null;
     },
   },
 });
