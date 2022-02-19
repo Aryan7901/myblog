@@ -1,0 +1,26 @@
+.card h1,
+.card h3,
+.card h2 {
+  text-align: center;
+}
+.card {
+  min-height: 80vh;
+  width: 97%;
+  overflow-wrap: break-word;
+  margin: auto;
+}
+.edit {
+  margin: 2rem;
+  background-color: rgb(211, 208, 16);
+  color: white;
+  border-color: rgb(211, 208, 16);
+}
+.edit:hover {
+  background-color: transparent;
+  color: rgb(253, 250, 46);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}

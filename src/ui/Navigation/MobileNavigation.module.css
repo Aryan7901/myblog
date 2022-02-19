@@ -1,0 +1,29 @@
+.hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.nav h1 {
+  margin-left: 1rem;
+}
+.nav {
+  background-color: var(--theme-color);
+  color: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0.05rem;
+}
+.nav ul {
+  list-style-type: none;
+  text-align: center;
+  font-size: large;
+  border-top: 1px solid white;
+}
+
+.nav a {
+  font-weight: 500;
+}

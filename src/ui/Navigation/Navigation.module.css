@@ -1,0 +1,33 @@
+.navbar {
+  background-color: var(--theme-color);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 4rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar a {
+  font-weight: 500;
+  font-size: large;
+  margin: 1rem;
+}
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+}
+.navbar h1 {
+  position: absolute;
+  left: 1rem;
+  margin: 1rem;
+}
+.navbar a:hover,
+.selected {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 3px;
+}

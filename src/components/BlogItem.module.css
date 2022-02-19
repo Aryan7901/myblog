@@ -1,0 +1,17 @@
+.card {
+  width: 50%;
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem;
+  overflow-wrap: break-word;
+}
+.card:hover {
+  -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  transform: scale(1.02);
+}
+@media screen and (max-width: 1000px) {
+  .card {
+    width: 80%;
+  }
+}

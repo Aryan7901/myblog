@@ -1,0 +1,10 @@
+.button {
+  margin: 2rem;
+  background-color: transparent;
+  color: var(--theme-color);
+  border-color: var(--theme-color);
+}
+.button:hover {
+  background-color: var(--theme-color);
+  color: white;
+}

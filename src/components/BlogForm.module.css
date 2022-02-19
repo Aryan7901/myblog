@@ -1,0 +1,69 @@
+.card {
+  width: 90%;
+  border: 3px;
+  border-radius: 15px;
+  border-color: var(--theme-color);
+  border-width: 1px;
+  border-style: solid;
+  margin: auto;
+  margin-top: 2rem;
+  text-align: center;
+  background-color: var(--bg-theme-1);
+  overflow: hidden;
+}
+.card form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card input {
+  width: 80%;
+  margin-top: 1rem;
+  height: 1.5rem;
+  border-radius: 10px;
+  border-color: var(--theme-color);
+  border-width: 0.5px;
+}
+.card textarea {
+  min-width: 80%;
+  height: 30vh;
+  border-radius: 10px;
+  border-color: var(--theme-color);
+  border-width: 0.5px;
+}
+
+.error {
+  color: red;
+}
+.card label {
+  font-size: large;
+  font-weight: 500;
+  color: var(--theme-color);
+  margin-top: 1rem;
+}
+
+.card button {
+  margin: 2rem;
+  background-color: var(--theme-color);
+  color: white;
+  border-color: var(--theme-color);
+  width: auto;
+}
+.card button:hover {
+  background-color: transparent;
+  color: var(--theme-color);
+}
+.divisions {
+  color: white;
+  background-color: var(--theme-color);
+  overflow: hidden;
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 800px) {
+  .card {
+    width: 80%;
+  }
+}
