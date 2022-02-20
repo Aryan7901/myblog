@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import classes from "./BlogForm.module.css";
 import Card from "../ui/Card";
 import FormikField from "./FormikField";
 function BlogForm(props) {
+  const [disabled, setDisabled] = useState(false);
   const blogSchema = Yup.object().shape({
     title: Yup.string().required("This field is Required!"),
     description: Yup.string().required("This field is Required!"),
@@ -26,6 +27,10 @@ function BlogForm(props) {
         validationSchema={blogSchema}
         onSubmit={(values) => {
           props.blogHandler(values);
+          setDisabled(true);
+          setTimeout(() => {
+            setDisabled(false);
+          }, 3000);
         }}
       >
         {({ errors, touched, handleBlur, handleChange, values }) => (
@@ -42,7 +47,7 @@ function BlogForm(props) {
             {errors.article && touched.article && (
               <div className={classes.error}>{errors.article}</div>
             )}
-            <button className="btn" type="submit">
+            <button className="btn" type="submit" disabled={disabled}>
               {props.buttonText}
             </button>
           </Form>
