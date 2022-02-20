@@ -10,7 +10,7 @@ function BlogForm(props) {
     description: Yup.string().required("This field is Required!"),
     article: Yup.string()
       .required("This field is Required!")
-      .min(50, "Article too short"),
+      .min(500, "Article too short"),
   });
   return (
     <Card className={classes.card}>

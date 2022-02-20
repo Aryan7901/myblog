@@ -8,12 +8,15 @@ function DeleteButton(props) {
   const id = props.id;
   const deleteHandler = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/user/${id}`, {
-        method: "DELETE",
-        headers: {
-          authorization: `BEARER ${token}`,
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/user/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            authorization: `BEARER ${token}`,
+          },
+        }
+      );
       navigate(-1);
       if (!response.ok) {
         throw new Error("Could not delete blog page");
