@@ -1,0 +1,37 @@
+.error {
+  color: var(--theme-color);
+}
+
+.form label {
+  display: block;
+}
+.form textarea {
+  margin: 1rem 0;
+  width: 50%;
+  height: 6rem;
+}
+.form button {
+  display: block;
+  margin: 0.5rem;
+  width: auto;
+  height: 2rem;
+  font-size: small;
+  border: var(--theme-color) 1px solid;
+  color: var(--theme-color);
+  background: transparent;
+}
+.form button:hover {
+  background-color: var(--theme-color);
+  color: white;
+}
+@media screen and (max-width: 800px) {
+  .form textarea {
+    width: 95%;
+  }
+}
+.form button:disabled {
+  background-color: transparent;
+  color: grey;
+  border-color: gray;
+  cursor: default;
+}

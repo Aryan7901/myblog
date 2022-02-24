@@ -1,15 +1,8 @@
-.content {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.comments {
+  padding: 2%;
 }
-.message {
-  color: var(--theme-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-style: italic;
-  margin: 0.5rem;
+.comments h2 {
+  font-style: normal;
 }
 .btn,
 .container a {

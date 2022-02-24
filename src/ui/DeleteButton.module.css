@@ -8,3 +8,9 @@
   background-color: transparent;
   color: rgb(211, 16, 16);
 }
+.icon:hover {
+  cursor: pointer;
+}
+.icon {
+  margin: 0 1rem;
+}

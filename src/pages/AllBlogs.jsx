@@ -2,9 +2,16 @@ import { Fragment, useEffect, useState } from "react";
 import BlogItem from "../components/BlogItem";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import classes from "./AllBlogs.module.css";
-
+import ReactPaginate from "react-paginate";
 const AllBlogs = () => {
   const [blogs, setBlogs] = useState(null);
+  const [pageNumber, setPageNumber] = useState(0);
+  const blogsPerPage = 10;
+  const pagesVisited = pageNumber * blogsPerPage;
+  const pageCount = !!blogs ? Math.ceil(blogs.length / blogsPerPage) : 0;
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -27,17 +34,29 @@ const AllBlogs = () => {
     <Fragment>
       {boolBlogs ? (
         <section className={classes.content}>
-          {blogs.map((blog) => {
-            return (
-              <BlogItem
-                key={blog._id}
-                title={blog.title}
-                author={blog.author}
-                description={blog.description}
-                id={blog._id}
-              />
-            );
-          })}
+          {blogs
+            .slice(pagesVisited, pagesVisited + blogsPerPage)
+            .map((blog) => {
+              return (
+                <BlogItem
+                  key={blog._id}
+                  title={blog.title}
+                  author={blog.author}
+                  description={blog.description}
+                  id={blog._id}
+                />
+              );
+            })}
+          <ReactPaginate
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={classes.container}
+            previousLinkClassName={classes.btn}
+            nextLinkClassName={classes.btn}
+            activeClassName={classes.active}
+          />
         </section>
       ) : (
         <LoadingSpinner />

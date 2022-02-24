@@ -5,6 +5,7 @@
   margin: 1rem;
   overflow-wrap: break-word;
 }
+
 .card:hover {
   -webkit-transform: scale(1.02);
   -ms-transform: scale(1.02);

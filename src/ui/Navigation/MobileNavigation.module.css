@@ -17,8 +17,8 @@
   z-index: 100;
   padding: 0.05rem;
 }
+
 .nav ul {
-  list-style-type: none;
   text-align: center;
   font-size: large;
   border-top: 1px solid white;
@@ -27,4 +27,5 @@
 .nav a {
   font-weight: 500;
   margin-right: 13.5%;
+  color: white;
 }

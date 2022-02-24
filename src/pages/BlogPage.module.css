@@ -1,14 +1,17 @@
-.card h1,
-.card h3,
-.card h2 {
+.blog h1,
+.blog h3,
+.blog h2 {
   text-align: center;
 }
-.card {
+.blog {
   min-height: 80vh;
-  width: 97%;
   overflow-wrap: break-word;
   margin: auto;
+  border-bottom: #00000014 1px solid;
+  border-block-width: 10%;
+  width: 96%;
 }
+
 .edit {
   margin: 2rem;
   background-color: rgb(211, 208, 16);
@@ -23,4 +26,8 @@
 .buttons {
   display: flex;
   justify-content: center;
+}
+
+.icon:hover {
+  cursor: pointer;
 }

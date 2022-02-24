@@ -45,6 +45,9 @@
   background-color: var(--theme-color);
   color: white;
 }
+.card a {
+  color: white;
+}
 .divisions {
   color: white;
   background-color: var(--theme-color);

@@ -11,9 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.night {
+  background-color: rgb(1, 1, 78);
+}
+.night a,
+.night p,
+.night label,
+.night h1,
+.night h2 {
+  color: white;
+}
+
 a {
   text-decoration: none;
-  color: white;
 }
 h1 {
   font-weight: 500;
@@ -39,7 +49,9 @@ h3 {
   width: 6rem;
   cursor: pointer;
 }
-
+ul {
+  list-style-type: none;
+}
 .btn:hover {
   transition-delay: 0.1s;
 }

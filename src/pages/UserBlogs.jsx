@@ -3,12 +3,19 @@ import { useSelector } from "react-redux";
 import BlogItem from "../components/BlogItem";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import classes from "./AllBlogs.module.css";
+import ReactPaginate from "react-paginate";
 
 const UserBlogs = () => {
   const [blogs, setBlogs] = useState(null);
   const token = useSelector((state) => state.user.token);
   const author = useSelector((state) => state.user);
-
+  const [pageNumber, setPageNumber] = useState(0);
+  const blogsPerPage = 10;
+  const pagesVisited = pageNumber * blogsPerPage;
+  const pageCount = !!blogs ? Math.ceil(blogs.length / blogsPerPage) : 0;
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -42,17 +49,29 @@ const UserBlogs = () => {
       )}
       {boolBlogs ? (
         <section className={classes.content}>
-          {blogs.map((blog) => {
-            return (
-              <BlogItem
-                key={blog._id}
-                title={blog.title}
-                author={author}
-                description={blog.description}
-                id={blog._id}
-              />
-            );
-          })}
+          {blogs
+            .slice(pagesVisited, pagesVisited + blogsPerPage)
+            .map((blog) => {
+              return (
+                <BlogItem
+                  key={blog._id}
+                  title={blog.title}
+                  author={author}
+                  description={blog.description}
+                  id={blog._id}
+                />
+              );
+            })}
+          <ReactPaginate
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={classes.container}
+            previousLinkClassName={classes.btn}
+            nextLinkClassName={classes.btn}
+            activeClassName={classes.active}
+          />
         </section>
       ) : (
         <LoadingSpinner />

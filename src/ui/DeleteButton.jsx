@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import classes from "./DeleteButton.module.css";
+import { AiOutlineDelete } from "react-icons/ai";
 function DeleteButton(props) {
   const token = useSelector((state) => state.user.token);
   const navigate = useNavigate();
@@ -26,9 +27,12 @@ function DeleteButton(props) {
     }
   };
   return (
-    <button className={`${classes.delete} btn`} onClick={deleteHandler}>
-      Delete
-    </button>
+    <AiOutlineDelete
+      size="30px"
+      color="black"
+      className={classes.icon}
+      onClick={deleteHandler}
+    />
   );
 }
 
