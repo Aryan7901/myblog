@@ -64,7 +64,8 @@ ul {
   h2 {
     color: aliceblue;
   }
-  input {
+  input,
+  textarea {
     color: black;
     background-color: rgb(150, 196, 236);
   }
