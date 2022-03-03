@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/myblog/static/css/main.04d05067.css",
+    "main.css": "/myblog/static/css/main.aa126c92.css",
     "main.js": "/myblog/static/js/main.de089902.js",
     "static/css/559.09d0fb1b.chunk.css": "/myblog/static/css/559.09d0fb1b.chunk.css",
     "static/js/559.63bc8162.chunk.js": "/myblog/static/js/559.63bc8162.chunk.js",
@@ -19,7 +19,7 @@
     "static/js/422.852ddff3.chunk.js": "/myblog/static/js/422.852ddff3.chunk.js",
     "static/media/user-img.png": "/myblog/static/media/user-img.2fda6558cd58b877e14f.png",
     "index.html": "/myblog/index.html",
-    "main.04d05067.css.map": "/myblog/static/css/main.04d05067.css.map",
+    "main.aa126c92.css.map": "/myblog/static/css/main.aa126c92.css.map",
     "main.de089902.js.map": "/myblog/static/js/main.de089902.js.map",
     "559.09d0fb1b.chunk.css.map": "/myblog/static/css/559.09d0fb1b.chunk.css.map",
     "559.63bc8162.chunk.js.map": "/myblog/static/js/559.63bc8162.chunk.js.map",
@@ -38,7 +38,7 @@
     "422.852ddff3.chunk.js.map": "/myblog/static/js/422.852ddff3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.04d05067.css",
+    "static/css/main.aa126c92.css",
     "static/js/main.de089902.js"
   ]
 }
