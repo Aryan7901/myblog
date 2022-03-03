@@ -64,6 +64,10 @@ ul {
   h2 {
     color: aliceblue;
   }
+  input {
+    color: black;
+    background-color: rgb(150, 196, 236);
+  }
   :root {
     --theme-color: #000e81;
     --card-theme: #10003f;
