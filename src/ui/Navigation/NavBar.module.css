@@ -1,7 +1,10 @@
 .mobile {
   display: none;
 }
-
+.mobile,
+.pc {
+  background-color: var(--nav-theme);
+}
 @media screen and (max-width: 600px) {
   .mobile {
     display: block;

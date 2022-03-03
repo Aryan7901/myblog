@@ -11,16 +11,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.night {
-  background-color: rgb(1, 1, 78);
-}
-.night a,
-.night p,
-.night label,
-.night h1,
-.night h2 {
-  color: white;
-}
 
 a {
   text-decoration: none;
@@ -60,4 +50,23 @@ ul {
   --theme-color: rgb(31, 89, 236);
   --bg-theme-2: rgba(238, 59, 137, 0.05);
   --bg-theme-1: rgba(31, 89, 236, 0.01);
+  --card-theme: white;
+  --nav-theme: rgb(31, 89, 236);
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #100039;
+  }
+  a,
+  p,
+  label,
+  h1,
+  h2 {
+    color: aliceblue;
+  }
+  :root {
+    --theme-color: #000e81;
+    --card-theme: #10003f;
+    --nav-theme: #000e81;
+  }
 }
