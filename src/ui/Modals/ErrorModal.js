@@ -14,7 +14,7 @@ const ErrorModal = (props) => {
         </button>
       }
     >
-      <p>{props.error}</p>
+      <p className={classes.errorText}>{props.error}</p>
     </Modal>
   );
 };
