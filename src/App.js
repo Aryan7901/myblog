@@ -30,7 +30,7 @@ function App() {
   const logoutHandler = useCallback(() => {
     localStorage.removeItem("userData");
     localStorage.removeItem("timer");
-    dispatch(userActions.logout())();
+    dispatch(userActions.logout());
   }, [dispatch]);
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("userData"));

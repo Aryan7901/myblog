@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./images/Jodhpur.jpg");
 }
 
 code {
@@ -45,17 +46,27 @@ ul {
 .btn:hover {
   transition-delay: 0.1s;
 }
+input,
+textarea {
+  color: black;
+  background: transparent;
+}
 :root {
   --theme-color-2: rgb(238, 59, 137);
   --theme-color: rgb(31, 89, 236);
   --bg-theme-2: rgba(238, 59, 137, 0.05);
-  --bg-theme-1: rgba(31, 89, 236, 0.01);
-  --card-theme: white;
+  --bg-theme-1: #65c7f7;
+  --card-theme: transparent;
   --nav-theme: rgb(31, 89, 236);
+}
+@media (max-width: 800px) {
+  body {
+    background-size: contain;
+  }
 }
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #100039;
+    background-image: url("./images/Frost.jpg");
   }
   a,
   p,
@@ -64,9 +75,15 @@ ul {
   h2 {
     color: aliceblue;
   }
+  input,
+  textarea {
+    color: black;
+    background: rgb(198, 198, 240);
+  }
   :root {
-    --theme-color: #000e81;
-    --card-theme: #10003f;
+    --theme-color: #14249e;
+    --card-theme: #21086e;
+    --bg-theme-1: transparent;
     --nav-theme: #000e81;
   }
 }
