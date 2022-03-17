@@ -59,6 +59,11 @@ textarea {
   --card-theme: transparent;
   --nav-theme: rgb(31, 89, 236);
 }
+@media (max-width: 800px) {
+  body {
+    background-size: contain;
+  }
+}
 @media (prefers-color-scheme: dark) {
   body {
     background-image: url("./images/Frost.jpg");
