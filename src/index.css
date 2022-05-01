@@ -55,7 +55,7 @@ textarea {
   --theme-color-2: rgb(238, 59, 137);
   --theme-color: rgb(31, 89, 236);
   --bg-theme-2: rgba(238, 59, 137, 0.05);
-  --bg-theme-1: #65c7f7;
+  --bg-theme-1: transparent;
   --card-theme: transparent;
   --nav-theme: rgb(31, 89, 236);
 }
