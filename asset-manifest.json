@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/myblog/static/css/main.55dff376.css",
+    "main.css": "/myblog/static/css/main.e787d52e.css",
     "main.js": "/myblog/static/js/main.725a037e.js",
     "static/css/559.847d7567.chunk.css": "/myblog/static/css/559.847d7567.chunk.css",
     "static/js/559.a54c008b.chunk.js": "/myblog/static/js/559.a54c008b.chunk.js",
@@ -17,11 +17,10 @@
     "static/js/579.810cad68.chunk.js": "/myblog/static/js/579.810cad68.chunk.js",
     "static/js/532.7d80a086.chunk.js": "/myblog/static/js/532.7d80a086.chunk.js",
     "static/js/422.852ddff3.chunk.js": "/myblog/static/js/422.852ddff3.chunk.js",
-    "static/media/Jodhpur.jpg": "/myblog/static/media/Jodhpur.c0dad2ccdd8d724c594b.jpg",
     "static/media/Frost.jpg": "/myblog/static/media/Frost.dbd39b4d8eebc0101e6b.jpg",
     "static/media/user-img.png": "/myblog/static/media/user-img.2fda6558cd58b877e14f.png",
     "index.html": "/myblog/index.html",
-    "main.55dff376.css.map": "/myblog/static/css/main.55dff376.css.map",
+    "main.e787d52e.css.map": "/myblog/static/css/main.e787d52e.css.map",
     "main.725a037e.js.map": "/myblog/static/js/main.725a037e.js.map",
     "559.847d7567.chunk.css.map": "/myblog/static/css/559.847d7567.chunk.css.map",
     "559.a54c008b.chunk.js.map": "/myblog/static/js/559.a54c008b.chunk.js.map",
@@ -40,7 +39,7 @@
     "422.852ddff3.chunk.js.map": "/myblog/static/js/422.852ddff3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.55dff376.css",
+    "static/css/main.e787d52e.css",
     "static/js/main.725a037e.js"
   ]
 }
