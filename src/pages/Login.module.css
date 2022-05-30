@@ -29,10 +29,10 @@
   color: red;
 }
 .card label {
-  font-size: large;
-  font-weight: 500;
+  font-size: larger;
   color: var(--theme-color);
   margin-top: 1rem;
+  font-weight: 700;
 }
 
 .card button {
@@ -40,6 +40,7 @@
   background-color: transparent;
   color: var(--theme-color);
   border-color: var(--theme-color);
+  font-weight: 700;
 }
 .card button:hover {
   background-color: var(--theme-color);

@@ -19,6 +19,7 @@
   border: var(--theme-color) 1px solid;
   color: var(--theme-color);
   background: transparent;
+  font-weight: 700;
 }
 .form button:hover {
   background-color: var(--theme-color);

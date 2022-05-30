@@ -4,6 +4,7 @@
 .mobile,
 .pc {
   background-color: var(--nav-theme);
+  backdrop-filter: blur(8px);
 }
 @media screen and (max-width: 600px) {
   .mobile {

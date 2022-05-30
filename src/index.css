@@ -50,6 +50,8 @@ input,
 textarea {
   color: black;
   background: transparent;
+  outline: none;
+  padding: 4px;
 }
 :root {
   --theme-color-2: rgb(238, 59, 137);
@@ -66,7 +68,8 @@ textarea {
 }
 @media (prefers-color-scheme: dark) {
   body {
-    background-image: url("./images/Frost.jpg");
+    /* background-image: url("./images/Frost.jpg"); */
+    background-color: rgba(2, 3, 10, 1);
   }
   a,
   p,
@@ -77,13 +80,13 @@ textarea {
   }
   input,
   textarea {
-    color: black;
-    background: rgb(198, 198, 240);
+    color: white;
+    background: rgba(198, 198, 240, 0.1);
   }
   :root {
-    --theme-color: #14249e;
-    --card-theme: #21086e;
-    --bg-theme-1: transparent;
-    --nav-theme: #000e81;
+    --theme-color: rgba(3, 0, 99, 0.78);
+    --card-theme: rgba(3, 0, 99, 0.78);
+    --bg-theme-1: rgba(13, 21, 66, 0.2);
+    --nav-theme: transparent;
   }
 }

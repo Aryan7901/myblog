@@ -29,7 +29,7 @@ function DeleteButton(props) {
   return (
     <AiOutlineDelete
       size="30px"
-      color="black"
+      color="red"
       className={classes.icon}
       onClick={deleteHandler}
     />

@@ -36,7 +36,7 @@ const BlogPage = () => {
   const buttons = (
     <div className={classes.buttons}>
       <Link to={`/edit/${id}`}>
-        <BiPencil className={classes.icon} size="30px" color="black" />
+        <BiPencil className={classes.icon} size="30px" />
       </Link>
       <DeleteButton id={id} />
     </div>
