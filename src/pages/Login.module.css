@@ -26,7 +26,7 @@
 }
 
 .error {
-  color: red;
+  color: crimson;
 }
 .card label {
   font-size: larger;
@@ -51,7 +51,7 @@
 }
 .divisions {
   color: white;
-  background-color: var(--theme-color);
+  background-color: var(--header-theme);
   overflow: hidden;
   min-height: 3rem;
   display: flex;

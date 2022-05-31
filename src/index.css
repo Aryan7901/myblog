@@ -56,6 +56,7 @@ textarea {
 :root {
   --theme-color-2: rgb(238, 59, 137);
   --theme-color: rgb(31, 89, 236);
+  --header-theme: rgb(31, 89, 236);
   --bg-theme-2: rgba(238, 59, 137, 0.05);
   --bg-theme-1: transparent;
   --card-theme: transparent;
@@ -84,9 +85,10 @@ textarea {
     background: rgba(198, 198, 240, 0.1);
   }
   :root {
-    --theme-color: rgba(3, 0, 99, 0.78);
-    --card-theme: rgba(3, 0, 99, 0.78);
+    --theme-color: rgb(53, 115, 238);
+    --card-theme: rgb(53, 115, 238);
     --bg-theme-1: rgba(13, 21, 66, 0.2);
-    --nav-theme: transparent;
+    --nav-theme: rgba(0, 64, 255, 0.5);
+    --header-theme: transparent;
   }
 }
