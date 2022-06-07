@@ -6,13 +6,18 @@ import reportWebVitals from "./reportWebVitals";
 import { HashRouter } from "react-router-dom";
 import store from "./store/index";
 import { Provider } from "react-redux";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+const queryClient = new QueryClient();
+
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <HashRouter>
-        <App />
-      </HashRouter>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </Provider>
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

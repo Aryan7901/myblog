@@ -7,32 +7,20 @@ import DeleteButton from "../ui/DeleteButton";
 import { Link } from "react-router-dom";
 import Comments from "../components/comments/Comments";
 import { BiPencil } from "react-icons/bi";
+import { useQuery } from "react-query";
+import fetchBlog from "../fetchers/fetchBlog";
 const BlogPage = () => {
   const params = useParams();
   const { id } = params;
-  const [blog, setBlog] = useState(null);
   const user = useSelector((state) => state.user);
   const [toggle, setToggle] = useState(false);
   const toggler = () => {
     setToggle((toggle) => !toggle);
   };
-  useEffect(() => {
-    const fetchBlog = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/blogs/blog/${id}`
-        );
-        if (!response.ok) {
-          throw new Error("Could not fetch blog page");
-        }
-        const data = await response.json();
-        setBlog(data.blog);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchBlog();
-  }, [id, toggle]);
+  const { data, error, isLoading } = useQuery(["blog-data", id], () =>
+    fetchBlog(id)
+  );
+  const blog = data ? data.blog : null;
   const buttons = (
     <div className={classes.buttons}>
       <Link to={`/edit/${id}`}>
@@ -41,14 +29,22 @@ const BlogPage = () => {
       <DeleteButton id={id} />
     </div>
   );
-  const boolBlog = !!blog;
   let boolModify = false;
   if (!!user.token && blog) {
     boolModify = blog.author._id === user.id;
   }
+  if (error) {
+    return (
+      <div className={classes.message}>
+        <h1 className={classes.error}>{error.message}</h1>
+      </div>
+    );
+  }
   return (
     <Fragment>
-      {boolBlog ? (
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
         <Fragment>
           <div className={classes.blog}>
             <h1>{blog.title}</h1>
@@ -60,8 +56,6 @@ const BlogPage = () => {
 
           {<Comments blogId={id} comments={blog.comments} toggler={toggler} />}
         </Fragment>
-      ) : (
-        <LoadingSpinner />
       )}
     </Fragment>
   );

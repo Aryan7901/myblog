@@ -11,7 +11,17 @@
   border-block-width: 10%;
   width: 96%;
 }
-
+.message {
+  color: var(--theme-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  margin: 0.5rem;
+}
+.error {
+  color: rgb(227, 63, 63);
+}
 .edit {
   margin: 2rem;
   background-color: rgb(211, 208, 16);

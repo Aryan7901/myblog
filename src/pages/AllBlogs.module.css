@@ -11,6 +11,9 @@
   font-style: italic;
   margin: 0.5rem;
 }
+.error {
+  color: rgb(227, 63, 63);
+}
 .btn,
 .container a {
   padding: 6px 12px;

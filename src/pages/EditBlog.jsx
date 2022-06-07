@@ -4,30 +4,18 @@ import { useSelector } from "react-redux";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import BlogForm from "../components/BlogForm";
 import { Fragment } from "react/cjs/react.production.min";
+import { useQuery } from "react-query";
+import classes from "./EditBlog.module.css";
+import fetchBlog from "../fetchers/fetchBlog";
 function EditBlog() {
   const params = useParams();
   const { id } = params;
   const navigate = useNavigate();
   const token = useSelector((state) => state.user.token);
-  const [blog, setBlog] = useState(null);
-  useEffect(() => {
-    const fetchBlog = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/blogs/blog/${id}`
-        );
-        if (!response.ok) {
-          throw new Error("Could not fetch blog data");
-        }
-        const data = await response.json();
-        setBlog(data.blog);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchBlog();
-  }, [id]);
-
+  const { data, error, isLoading } = useQuery(["blog-data", id], () =>
+    fetchBlog(id)
+  );
+  const blog = data ? data.blog : null;
   const updateBlogHandler = async (values) => {
     try {
       const response = await fetch(
@@ -53,9 +41,18 @@ function EditBlog() {
       console.log(err);
     }
   };
+  if (error) {
+    return (
+      <div className={classes.message}>
+        <h1 className={classes.error}>{error.message}</h1>
+      </div>
+    );
+  }
   return (
     <Fragment>
-      {!!blog ? (
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
         <BlogForm
           blogHandler={updateBlogHandler}
           title={blog.title}
@@ -64,8 +61,6 @@ function EditBlog() {
           buttonText="Edit Blog"
           text="Edit Blog"
         />
-      ) : (
-        <LoadingSpinner />
       )}
     </Fragment>
   );

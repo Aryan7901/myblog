@@ -1,38 +1,40 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import BlogItem from "../components/BlogItem";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import classes from "./AllBlogs.module.css";
 import ReactPaginate from "react-paginate";
+import { useQuery } from "react-query";
 const AllBlogs = () => {
-  const [blogs, setBlogs] = useState(null);
   const [pageNumber, setPageNumber] = useState(0);
   const blogsPerPage = 10;
   const pagesVisited = pageNumber * blogsPerPage;
-  const pageCount = !!blogs ? Math.ceil(blogs.length / blogsPerPage) : 0;
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/blogs/all`
-        );
-        if (!response.ok) {
-          throw new Error("Could not login");
-        }
-        const data = await response.json();
-        setBlogs(data.blogs);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchBlogs();
-  }, []);
-  const boolBlogs = !!blogs;
+  const fetcher = async () => {
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/blogs/all`
+    );
+    if (!response.ok) {
+      throw new Error("Could not login");
+    }
+    return response.json();
+  };
+  const { data, error, isLoading } = useQuery("all-blogs", fetcher);
+  let blogs = data ? data.blogs : [];
+  const pageCount = !!blogs ? Math.ceil(blogs.length / blogsPerPage) : 0;
+  if (error) {
+    return (
+      <div className={classes.message}>
+        <h1 className={classes.error}>{error.message}</h1>
+      </div>
+    );
+  }
   return (
     <Fragment>
-      {boolBlogs ? (
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
         <section className={classes.content}>
           {blogs
             .slice(pagesVisited, pagesVisited + blogsPerPage)
@@ -58,8 +60,6 @@ const AllBlogs = () => {
             activeClassName={classes.active}
           />
         </section>
-      ) : (
-        <LoadingSpinner />
       )}
     </Fragment>
   );

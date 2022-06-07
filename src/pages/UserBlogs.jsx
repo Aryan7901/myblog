@@ -4,50 +4,54 @@ import BlogItem from "../components/BlogItem";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import classes from "./AllBlogs.module.css";
 import ReactPaginate from "react-paginate";
+import { useQuery } from "react-query";
 
 const UserBlogs = () => {
-  const [blogs, setBlogs] = useState(null);
   const token = useSelector((state) => state.user.token);
   const author = useSelector((state) => state.user);
   const [pageNumber, setPageNumber] = useState(0);
   const blogsPerPage = 10;
   const pagesVisited = pageNumber * blogsPerPage;
-  const pageCount = !!blogs ? Math.ceil(blogs.length / blogsPerPage) : 0;
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await fetch(
-          process.env.REACT_APP_BACKEND_URL + "/user/list",
-          {
-            headers: {
-              authorization: `BEARER ${token}`,
-            },
-          }
-        );
-        if (!response.ok) {
-          throw new Error("Could not fetch User's Pages");
-        }
-        const data = await response.json();
-        setBlogs(data.blogs);
-      } catch (err) {
-        console.log(err);
+  const fetchBlogs = async () => {
+    const response = await fetch(
+      process.env.REACT_APP_BACKEND_URL + "/user/list",
+      {
+        headers: {
+          authorization: `BEARER ${token}`,
+        },
       }
-    };
-    fetchBlogs();
-  }, [token]);
+    );
+    if (!response.ok) {
+      throw new Error("Could not fetch User's Pages");
+    }
+    return response.json();
+  };
+  const { data, error, isLoading } = useQuery(
+    ["user-blogs", token],
+    fetchBlogs
+  );
+  const blogs = data ? data.blogs : null;
+  const pageCount = !!blogs ? Math.ceil(blogs.length / blogsPerPage) : 0;
   const boolShowNotFound = JSON.stringify(blogs) === "[]";
-  const boolBlogs = !!blogs;
+  if (error) {
+    return (
+      <div className={classes.message}>
+        <h1 className={classes.error}>{error.message}</h1>
+      </div>
+    );
+  }
   return (
     <Fragment>
-      {boolShowNotFound && (
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : boolShowNotFound ? (
         <div className={classes.message}>
           <h1>You are yet to Write a Blog!</h1>
         </div>
-      )}
-      {boolBlogs ? (
+      ) : (
         <section className={classes.content}>
           {blogs
             .slice(pagesVisited, pagesVisited + blogsPerPage)
@@ -73,8 +77,6 @@ const UserBlogs = () => {
             activeClassName={classes.active}
           />
         </section>
-      ) : (
-        <LoadingSpinner />
       )}
     </Fragment>
   );
