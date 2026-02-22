@@ -8,7 +8,7 @@
 }
 @media screen and (max-width: 600px) {
   .mobile {
-    display: block;
+    display: flex;
   }
   .pc {
     display: none;

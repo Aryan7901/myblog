@@ -3,31 +3,128 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  height: 4rem;
+  align-items: center;
+  height: 5rem;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 100;
+  background: var(--nav-theme);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.navbar h1 {
+  position: absolute;
+  left: 2rem;
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.navbar h1:hover {
+  transform: scale(1.02);
+}
+
 .navbar a {
-  font-weight: 500;
-  font-size: large;
-  margin: 1rem;
-  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  transition: width 0.3s ease;
+  opacity: 0;
+}
+
+.navbar a:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar a:hover::after {
+  width: 80%;
+  opacity: 1;
+}
+
+.navbar .selected {
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.navbar .selected::after {
+  width: 80%;
+  opacity: 1;
+}
+
 .navbar ul {
   list-style-type: none;
   display: flex;
   flex-direction: row;
+  margin-right: 2rem;
 }
-.navbar h1 {
-  position: absolute;
-  left: 1rem;
-  margin: 1rem;
+
+.navbar li {
+  display: flex;
+  align-items: center;
 }
-.navbar a:hover,
-.selected {
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  text-decoration-thickness: 3px;
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background: rgba(30, 41, 59, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .navbar h1 {
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .navbar a {
+    color: rgba(226, 232, 240, 0.9);
+  }
+  
+  .navbar a:hover {
+    color: #f8fafc;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .navbar .selected {
+    color: #f8fafc;
+    background: rgba(255, 255, 255, 0.12);
+  }
+  
+  .navbar a::after {
+    background: linear-gradient(90deg, transparent, #f8fafc, transparent);
+  }
 }

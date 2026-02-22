@@ -5,7 +5,13 @@
   align-items: center;
   font-style: italic;
   margin: 0.5rem;
+  padding: 3rem;
+  background: var(--card-theme);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
 }
+
 .error {
-  color: rgb(227, 63, 63);
+  color: #ef4444;
+  font-weight: 600;
 }

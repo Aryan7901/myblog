@@ -67,11 +67,21 @@ const UserBlogs = () => {
               );
             })}
           <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
+            previousLabel={
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+            }
+            nextLabel={
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            }
             pageCount={pageCount}
             onPageChange={changePage}
             containerClassName={classes.container}
+            previousClassName={classes.previous}
+            nextClassName={classes.next}
             previousLinkClassName={classes.btn}
             nextLinkClassName={classes.btn}
             activeClassName={classes.active}

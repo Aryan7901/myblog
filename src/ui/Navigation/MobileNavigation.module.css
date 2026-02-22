@@ -4,10 +4,29 @@
   right: 0;
   cursor: pointer;
   margin-top: 1rem;
+  margin-right: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
 }
+
+.hamburger:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
 .nav h1 {
-  margin-left: 1rem;
+  margin-left: 2rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
+
 .nav {
   color: white;
   position: -webkit-sticky;
@@ -15,15 +34,99 @@
   top: 0;
   z-index: 100;
   padding: 0.05rem;
+  background: var(--nav-theme);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  height: 5rem;
+  align-items: center;
 }
 
 .nav ul {
   text-align: center;
-  font-size: large;
+  font-size: 1rem;
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  background: var(--nav-theme);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .nav a {
-  font-weight: 500;
-  margin-right: 13.5%;
+  font-weight: 600;
+  margin-right: 0;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 1rem 2rem;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.nav a:hover {
   color: white;
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 2.5rem;
+}
+
+.nav li {
+  margin: 0.5rem 0;
+}
+
+@media screen and (min-width: 601px) {
+  .nav {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav {
+    background: rgba(30, 41, 59, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .nav h1 {
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .nav ul {
+    background: rgba(30, 41, 59, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .nav a {
+    color: rgba(226, 232, 240, 0.9);
+  }
+  
+  .nav a:hover {
+    color: #f8fafc;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .hamburger {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .hamburger:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
 }

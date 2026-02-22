@@ -11,7 +11,7 @@ function CommentItem(props) {
   const boolModify = id === props.comment.user._id;
   const [edit, setEdit] = useState(false);
   function capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    return string?.charAt(0).toUpperCase() + string?.slice(1).toLowerCase();
   }
   const editToggle = () => {
     setEdit((edit) => !edit);
